@@ -30,5 +30,12 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     })
+
+    Client.associate = (models) => {
+        Client.hasMany(models.Order, {
+            onDelete: "cascade"
+        })
+    }
+    
     return Client;
 }

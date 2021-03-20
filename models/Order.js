@@ -30,5 +30,13 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     })
+
+    Order.associate = (models) => {
+        Order.belongsTo(models.Client, {
+           foreignKey: {
+               allowNull: false
+           } 
+        })
+    }
     return Order;
 }
