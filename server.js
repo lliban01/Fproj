@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: process.env.USER,
     password: process.env.PASS,
-    database: "quotes_db"
+    database: process.env.DB
 })
 
 connection.connect((err) => {
