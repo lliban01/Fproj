@@ -22,13 +22,7 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true
             }
         },
-        clientId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        }
+        
     })
 
     Order.associate = (models) => {
