@@ -24,12 +24,10 @@ connection.connect((err) => {
     console.log("Connected")
 })
 
-app.get("/", (req, res) => {
-    console.log("Test")
-    
-})
+require("./routes/api-routes.js")(app)
 
-db.sequelize.sync().then((req) => {
+db.sequelize.sync(  )
+.then((req) => {
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`)
 })

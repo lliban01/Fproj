@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         email: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Client.associate = (models) => {
         Client.hasMany(models.Order, {
-            onDelete: "cascade"
+            // onDelete: "cascade"
         })
     }
     
