@@ -1,33 +1,18 @@
-import { Fragment } from 'react';
-import './App.css';
-import companyLogo from './firstpaint.jpg';
+import React from 'react';
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Main from "./components/Main";
 
 function App() {
   return (
-    <Fragment>
-        
-        <div>
-          <h1 class='tc'> Paint Bid App</h1>
-          <img class=' w-100 ' src={companyLogo}/>
-        </div>
+    <Router>
 
-        
-        <h1 class="tc">Sign in</h1> 
-        <form action="/action_page.php" class="tc">
-          <label for="email">Email: </label>
-          <input type="email" id="email" name="email"/> <br/><br/>
-          <label for="password">Password: </label>
-          <input type="password" id="password" name="password"/> <br/><br/>
-          <input type="submit" value="Submit"/>
-        </form>
-    
-
-
-    </Fragment>
-    
-  
- 
-    
+      <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/home" component={Main}/>
+      </Switch>
+    </Router>
   );
 }
 
