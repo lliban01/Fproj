@@ -10,14 +10,14 @@ function Main() {
            </div>
            <div>
                <button>add</button>
-               <h1>Add Project</h1>
+               <h1>Add Bids</h1>
            </div>
-           <h3>Search existing projects</h3>
+           <h3>Search existing Bids</h3>
            <input value="Search" />
        </div>
-   )
+   );
    
-}
+};
 
 export default Main;
 
