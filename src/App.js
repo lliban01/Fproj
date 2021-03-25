@@ -12,12 +12,18 @@ import Oldbids from './components/Oldbids';
 function App() {
   return (
     <Router>
-
       <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/home" component={Main}/>
+        <Route exact path="/"     component={Home}/>
+        <Route path="/home"       component={Main}/>
+        <Route path="/labor"      component={Labor}/>
+        <Route path="/Oldbids"    component={Oldbids}/>
+        <Route path="/Newbids"    component={Newbids}/>
+        <Route path="/Paint"      component={Paint}/>
+        <Route path="/Materials"  component={Materials}/>
+        <Route path="/Quote"      component={Quote}/>
       </Switch>
     </Router>
+    
   );
 }
 
