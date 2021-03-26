@@ -9,22 +9,25 @@ import Paint from "./components/Paint";
 import Materials from "./components/Materials";
 import Oldbids from './components/Oldbids';
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/"     component={Home}/>
-        <Route path="/home"       component={Main}/>
-        <Route path="/labor"      component={Labor}/>
-        <Route path="/Oldbids"    component={Oldbids}/>
-        <Route path="/Newbids"    component={Newbids}/>
-        <Route path="/Paint"      component={Paint}/>
-        <Route path="/Materials"  component={Materials}/>
-        <Route path="/Quote"      component={Quote}/>
-      </Switch>
-    </Router>
-    
-  );
-}
+class App extends React.Component { 
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/"     component={Home}/>
+          <Route path="/home"       component={Main}/>
+          <Route path="/labor"      component={Labor}/>
+          <Route path="/Oldbids"    component={Oldbids}/>
+          <Route path="/Newbids"    component={Newbids}/>
+          <Route path="/Paint"      component={Paint}/>
+          <Route path="/Materials"  component={Materials}/>
+          <Route path="/Quote"      component={Quote}/>
+        </Switch>
+      </Router>
+      
+    );
+    }
+  
+  }
 
 export default App;

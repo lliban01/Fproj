@@ -12,7 +12,7 @@ const clientData = [{ email: "johnsmith@email.com", name: "John" }];
 let db;
 
 //create new DB request for "bid"//
-var request = indexedDB.open("bid", 1); //only use round numbers for version
+const request = indexedDB.open("bid", 1); //only use round numbers for version
 
 // check for other instances loaded with the database
 request.onblocked = function (event) {
@@ -37,13 +37,14 @@ request.onupgradeneeded = function (event) {
   //var objectStore= db.createObjectStore("clients", { keyPath: "email"}); //objectStore to hold customer info by email (unique)
   var objectStore = db.createObjectStore("name", { autoIncrement: true }); //adds a auto incremented key generator to each name
   objectStore.createIndex("name", "name", { unique: false }); //create an index to search clients by name(not unique)
-  //objectStore.createIndex("email", "email", { unique: true }); //create an index to search clients by email(unique)
+  objectStore.createIndex("email", "email", { unique: true }); //create an index to search clients by email(unique)
   objectStore.transaction.oncomplete = function (event) {
     var clientObjStore = db
       .transaction("clients", "readwrite")
       .objectStore("clients");
     clientData.forEach(function (client) {
       clientObjStore.add(client.name);
+      clientObjStore.add(client.email);
     });
   };
   loadDatabase(db);
@@ -102,7 +103,7 @@ request.onerror = function (event) {
 };
 
 request.onsuccess = function (event) {
-  console.log("Project for" + request.result.name);
+  console.log("Project for" + request.result.client);
 };
 
 //UPDATING DATA//
@@ -110,8 +111,8 @@ request.onsuccess = function (event) {
 var objectStore = db
   .transaction(["clients"], "readwrite")
   .objectStore("clients");
-var request = objectStore.get("name");
-request.onerror = function (event) {
+var requestName = objectStore.get("name");
+requestName.onerror = function (event) {
   console.log("Whoops!" + event.target.errorCode);
 };
 

@@ -1,28 +1,53 @@
-import React from 'react';
-import '../App.css';
-import companyLogo from '../firstpaint.jpg';
+import React from "react";
+import "../App.css";
+import companyLogo from "../firstpaint.jpg";
 
- function Home() {
+class Home extends React.Component {
+  insertGapiScript() {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/platform.js";
+    script.onload = () => {
+      this.initializeGoogleSignin();
+    };
+    document.body.appendChild(script)
+  }
+  componentDidMount() {
+    console.log("loading");
+
+    this.insertGapiScript();
+  }
+  initializeGoogleSignin() {
+    window.gapi.load("auth2", () => {
+      window.gapi.auth2.init({
+        client_id:
+          "341203008031-5se8sgjjeu2mag080em4k8g1eu5en0ut.apps.googleusercontent.com",
+      });
+      console.log("API inited");
+
+      window.gapi.load("signin2", () => {
+        const params = {
+          onsuccess: () => {
+            console.log("user sign in complete");
+          },
+        };
+        window.gapi.signin2.render("loginButton", params);
+      });
+    });
+  }
+  render() {
     return (
-        < div> 
-            <div>
-              <h1 class='tc'> Paint Bid App</h1>
-              <img class=' w-100 ' src={companyLogo}/>
-            </div>
-            <h1 class="tc">Sign in</h1> 
-            <form action="/action_page.php" class="tc">
-              <label for="email">Email: </label>
-              <input type="email" id="email" name="email"/> <br/><br/>
-              <label for="password">Password: </label>
-              <input type="password" id="password" name="password"/> <br/><br/>
-              <input type="submit" value="Submit"/>
-            </form>
-            
+      <div>
+        <div>
+          <h1 className="tc"> Paint Bid App</h1>
+          <img className=" w-100 " src={companyLogo} alt="logo" />
         </div>
-        
-    )
-    
+        <h1 className="tc">Sign in</h1>
+        <form action="/action_page.php" className="tc">
+          <div id="loginButton">Signin with GOogle</div>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Home;
-
