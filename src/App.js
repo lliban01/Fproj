@@ -8,6 +8,7 @@ import Newbids from "./components/Newbids";
 import Paint from "./components/Paint";
 import Materials from "./components/Materials";
 import Oldbids from "./components/Oldbids";
+import "./index.css"
 
 class App extends React.Component {
   constructor(props) {
