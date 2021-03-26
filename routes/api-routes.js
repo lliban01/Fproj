@@ -16,6 +16,16 @@ module.exports = (app) => {
         })
     })
 
+    app.get("/api/clients/:id", (req, res) => {
+        db.Client.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then((dbClient) => {
+            res.json(dbClient)
+        })
+    })
+
     app.post("/api/clients", (req, res) => {
         db.Client.create({
           fullName: req.body.name,
@@ -24,3 +34,6 @@ module.exports = (app) => {
         }).then((dbClient) => res.json(dbClient))
     })
 }
+
+    app.delete("/api/")
+
