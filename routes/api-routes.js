@@ -33,7 +33,14 @@ module.exports = (app) => {
           email: req.body.email
         }).then((dbClient) => res.json(dbClient))
     })
+
+    app.delete("/api/", (req, res) => {
+        db.Client.destroy({
+            where: {
+                id: req.body.id
+            }
+        }).then((dbClient) => res.json(dbClient))    
+    })
 }
 
-    app.delete("/api/")
 
