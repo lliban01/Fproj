@@ -42,8 +42,9 @@ module.exports = (sequelize, DataTypes) => {
     Client.beforeCreate = (dbClient) => {
         dbClient.fullName = dbClient.fullName.toLowerCase()
         
-        
     }
+
+    
     
     return Client;
 }
