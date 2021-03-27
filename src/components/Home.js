@@ -9,7 +9,7 @@ class Home extends React.Component {
     script.onload = () => {
       this.initializeGoogleSignin();
     };
-    document.body.appendChild(script)
+    document.body.appendChild(script);
   }
   componentDidMount() {
     console.log("loading");
@@ -41,9 +41,8 @@ class Home extends React.Component {
           <h1 className="tc"> Paint Bid App</h1>
           <img className=" w-100 " src={companyLogo} alt="logo" />
         </div>
-        <h1 className="tc">Sign in</h1>
         <form action="/action_page.php" className="tc">
-          <div id="loginButton">Signin with GOogle</div>
+          <div id="loginButton">Signin with Google</div>
         </form>
       </div>
     );

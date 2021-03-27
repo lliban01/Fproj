@@ -8,6 +8,8 @@ import Newbids from "./components/Newbids";
 import Paint from "./components/Paint";
 import Materials from "./components/Materials";
 import Oldbids from "./components/Oldbids";
+import Navbar from "./components/Navbar";
+import "./index.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -48,8 +50,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
-        <Switch>
+      <div>
+        <Router>
+          <Navbar />
+
           <Route exact path="/" component={Home} />
           <Route path="/home" render={() => this.ifUserSignedIn(Home)} />
           <Route path="/home" component={Main} />
@@ -59,8 +63,8 @@ class App extends React.Component {
           <Route path="/Paint" component={Paint} />
           <Route path="/Materials" component={Materials} />
           <Route path="/Quote" component={Quote} />
-        </Switch>
-      </Router>
+        </Router>
+      </div>
     );
   }
 }

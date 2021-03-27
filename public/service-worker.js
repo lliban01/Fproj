@@ -4,11 +4,11 @@ console.log("Hi from your service-worker.js file!");
 
 var urlsToCache = [
   "/",
-  "/index.html",
-  "/index.js",
-  "/db.js",
-  "/favicon.ico",
-  "/manifest.webmanifest",
+  "osu-final-project/index.html",
+  "osu-final-project/index.js",
+  "osu-final-project/db.js",
+  "osu-final-project/favicon.ico",
+  "osu-final-project/manifest.webmanifest",
 ];
 
 const CACHE_NAME = "static-cache-v1";
