@@ -35,17 +35,21 @@ request.onsuccess = function (event) {
 //set up database
 request.onupgradeneeded = function (event) {
   const db = event.target.result;
-  var objectStore = db.createObjectStore("clients", { keyPath: "email" }); //objectStore to hold customer info by email (unique)
-  var objectStore = db.createObjectStore("client", { autoIncrement: true }); //adds a auto incremented key generator to each name
-  objectStore.createIndex("name", "name", { unique: false }); //create an index to search clients by name(not unique)
-  objectStore.createIndex("email", "email", { unique: true }); //create an index to search clients by email(unique)
+
+  //objectStore to hold customer info by email (unique)
+  var objectStore = db.createObjectStore("client", {
+    keyPath: "email",
+    autoIncrement: true,
+  });
+
+  //create an index to search clients by email(unique)
+  objectStore.createIndex("email", "email", { unique: true });
   objectStore.transaction.oncomplete = function (event) {
     var clientObjStore = db
-      .transaction("clients", "readwrite")
-      .objectStore("clients");
+      .transaction("client", "readwrite")
+      .objectStore("client");
     clientData.forEach(function (client) {
-      clientObjStore.add(client.name);
-      clientObjStore.add(client.email);
+      clientObjStore.add(client);
     });
   };
   loadDatabase(db);
@@ -57,24 +61,27 @@ function loadDatabase(db) {
     db.close();
     console.log("Please reload or close this tab to load the new version");
   };
+  //addClient();
 }
 
-// //ADDING DATA//
+// // //ADDING DATA//
+// function addClient() {
+//   var newClient = [{ email: "", name: "" }];
+//   var transaction = db.transaction(["client"], "readwrite");
 
-// var transaction = db.transaction(["clients"], "readwrite");
-// transaction.oncomplete = function (event) {
-//   console.log("complete!");
-// };
+//   transaction.oncomplete = function (event) {
+//     console.log("complete!");
+//   };
 
-// transaction.onerror = function (event) {
-//   console.log("Whoops!" + event.target.errorCode);
-// };
+//   transaction.onerror = function (event) {
+//     console.log("Whoops!" + event.target.errorCode);
+//   };
 
-// var objectStore = transaction.objectStore("clients");
-// clientData.forEach(function (client) {
-//   var request = objectStore.add(client);
-//   request.onsuccess = function (event) {};
-// });
+//   var objectStore = transaction.objectStore("client");
+//   // clientData.forEach(function (client) {
+//   var objStoreRequest = objectStore.add(newClient[0]);
+//   objStoreRequest.onsuccess = function (event) {};
+// }
 
 // //RETRIEVE DATA//
 
@@ -130,31 +137,32 @@ function loadDatabase(db) {
 //   };
 // };
 
-class Main  {
+class Main {
   render() {
     return (
       <div>
-         <h1>Main</h1>
-         <div>
-           <button>setting</button>
-         </div>
-         <div>
-           <button><Link to="/newbids"> Add New Bid </Link></button>
-           <h1>Add Bids</h1>
-         </div>
-         <h3>Search existing Bids</h3>
-         <div>
-           <ul>
-               <li> Bid 1</li>
-               <li> Bid 2</li>
-               <li> Bid 3</li>
-               <li> Bid 4</li>
-           </ul>
-         </div>
-       </div>
-     );
-   }
- } 
-
+        <h1>Main</h1>
+        <div>
+          <button>setting</button>
+        </div>
+        <div>
+          <button>
+            <Link to="/newbids"> Add New Bid </Link>
+          </button>
+          <h1>Add Bids</h1>
+        </div>
+        <h3>Search existing Bids</h3>
+        <div>
+          <ul>
+            <li> Bid 1</li>
+            <li> Bid 2</li>
+            <li> Bid 3</li>
+            <li> Bid 4</li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Main;
