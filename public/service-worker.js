@@ -25,6 +25,7 @@ self.addEventListener("install", function (event) {
     caches.open(CACHE_NAME).then(function (cache) {
       console.log("Opened cache");
       return cache.addAll(urlsToCache);
+      
     })
   );
 });
@@ -38,8 +39,8 @@ self.addEventListener("fetch", function (event) {
 
       return fetch(event.request).then(function (response) {
         // Check if we received a valid response
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
+        if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
+          return;  
         }
 
         var responseToCache = response.clone();

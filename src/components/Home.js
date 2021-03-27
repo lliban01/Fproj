@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import companyLogo from "../firstpaint.jpg";
 
+
 class Home extends React.Component {
   insertGapiScript() {
     const script = document.createElement("script");
