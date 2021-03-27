@@ -129,21 +129,32 @@ function loadDatabase(db) {
 //     console.log("Your project client is updated.");
 //   };
 // };
-function Main() {
-  return (
-    <div>
-      <h1>Main</h1>
+
+class Main  {
+  render() {
+    return (
       <div>
-        <button>setting</button>
-      </div>
-      <div>
-        <button>add</button>
-        <h1>Add Bids</h1>
-      </div>
-      <h3>Search existing Bids</h3>
-      <input value="Search" />
-    </div>
-  );
-}
+         <h1>Main</h1>
+         <div>
+           <button>setting</button>
+         </div>
+         <div>
+           <button><Link to="/newbids"> Add New Bid </Link></button>
+           <h1>Add Bids</h1>
+         </div>
+         <h3>Search existing Bids</h3>
+         <div>
+           <ul>
+               <li> Bid 1</li>
+               <li> Bid 2</li>
+               <li> Bid 3</li>
+               <li> Bid 4</li>
+           </ul>
+         </div>
+       </div>
+     );
+   }
+ } 
+
 
 export default Main;
