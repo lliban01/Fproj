@@ -1,12 +1,29 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 function Newbids() {
-   return (
-       <div>
-           <h1>Newbids</h1>
-       </div>
-   )
+    return (
+        <div>
+            <h1>Client Name</h1>
+            <input placeholder="John Doe"/> 
+            <br/>
+            <br/>
+            <h1>Address</h1>
+            <input placeholder="123 Main St. City, State 12345"/>
+            <br/>
+             <h1>Client Email</h1>
+             <input placeholder="user@email.com"/>
+             <div>
+                 <button> <Link to="/main"> Back</Link></button>
+                 <button> <Link to="/paint"> Paint</Link></button>
+             </div>
+ 
    
-}
-
-export default Newbids;
+        </div>
+        
+    )
+    
+ }
+ 
+ export default Newbids;
