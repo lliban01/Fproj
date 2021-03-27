@@ -6,16 +6,6 @@ module.exports = (app) => {
         .then((dbClient) => res.json(dbClient))
     })
 
-    app.get("/api/clients/:name", (req, res) => {
-        db.Client.findAll({
-            where: {
-                fullName: req.params.name
-            }
-        }).then((dbClient) => {
-            res.json(dbClient)
-        })
-    })
-
     app.get("/api/clients/:id", (req, res) => {
         db.Client.findAll({
             where: {
@@ -26,21 +16,29 @@ module.exports = (app) => {
         })
     })
 
-    app.post("/api/clients", (req, res) => {
+    app.post("/api/clients/", (req, res) => {
+        console.log(req.body)
         db.Client.create({
-          fullName: req.body.name,
+          fullName: req.body.fullName,
           address: req.body.address,
           email: req.body.email
-        }).then((dbClient) => res.json(dbClient))
+        })
+        .catch((err) => {
+            if (err) {
+                console.log(err)
+            }
+        })
+        .then((dbClient) => res.json(dbClient))
+        
     })
 
-    app.delete("/api/", (req, res) => {
+    app.delete("/api/clients/:id", (req, res) => {
         db.Client.destroy({
             where: {
-                id: req.body.id
+                id: req.params.id
             }
-        }).then((dbClient) => res.json(dbClient))    
+        }).then((dbClient) => { 
+            res.json(dbClient)
+        })
     })
 }
-
-
