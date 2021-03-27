@@ -34,9 +34,12 @@
       gapi.load('auth2', function () {});
       }
   </script>>-->
-
+  <!-- <script type="module">
+    import { openDB, deleteDB } from 'https://unpkg.com/idb?module'
+    </script> -->
   <title>React App</title>
 </head>
+<script src="./service-worker.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
@@ -64,8 +67,22 @@
     -->
   <a href="https://www.iubenda.com/privacy-policy/47088602" class="iubenda-white iubenda-embed"
     title="Privacy Policy ">Privacy Policy</a>
-  <script
-    type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+  <footer>
+    <script type="text/javascript">(function (w, d) {
+        var loader = function () {
+          var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag);
+        };
+        if (w.addEventListener) {
+          w.addEventListener("load", loader, false);
+        } else if (w.attachEvent) {
+          w.attachEvent("onload", loader);
+        } else {
+          w.onload = loader;
+        }
+      })
+        (window, document);
+    </script>
+  </footer>
 </body>
 
 </html>
