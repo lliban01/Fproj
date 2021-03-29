@@ -15,13 +15,13 @@ module.exports = (app) => {
             res.json(data)
         })
     })
-
+    
     app.post("/api/clients/", (req, res) => {
         console.log(req.body)
         db.Client.create({
-          fullName: req.body.fullName,
-          address: req.body.address,
-          email: req.body.email
+            fullName: req.body.fullName,
+            address: req.body.address,
+            email: req.body.email
         })
         .catch((err) => {
             if (err) {
@@ -41,9 +41,19 @@ module.exports = (app) => {
             res.json(data)
         })
     })
-
+    
     app.get("/api/materials/", (req, res) => {
         db.Material.findAll({})
         .then((data) => res.json(data))
+    })
+    
+    app.get("/api/materials/:id", (req, res) => {
+        db.Material.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then((data) => {
+            res.json(data)
+        })
     })
 }

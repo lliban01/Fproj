@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         pricePerUnit: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: false,
             validate: {
                 notEmpty: true
