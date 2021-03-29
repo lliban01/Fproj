@@ -1,5 +1,5 @@
 module.exports = (seqeulize, DataTypes) => {
-    const User = seqeulize.define("Client", {
+    const User = seqeulize.define("User", {
        
         email: {
             type: DataTypes.STRING,

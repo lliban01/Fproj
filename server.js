@@ -10,7 +10,7 @@ app.use(express.static("public"));
 require("./routes/api-routes.js")(app)
 
 
-db.sequelize.sync(  )
+db.sequelize.sync()
 .then((req) => {
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`)

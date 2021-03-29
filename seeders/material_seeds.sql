@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS materials_db;
+DROP DATABASE IF EXISTS quotes_db;
 
-CREATE DATABASE materials_db;
+CREATE DATABASE quotes_db;
 
-USE materials_db;
+USE quotes_db;
 
 INSERT INTO materials (materialName, pricePerUnit, createdAt, updatedAt)
 values ("masking tape", 6, NOW(), NOW())

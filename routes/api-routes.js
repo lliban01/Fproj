@@ -3,7 +3,7 @@ const db = require("../models")
 module.exports = (app) => {
     app.get("/api/clients/", (req, res) => {
         db.Client.findAll({})
-        .then((dbClient) => res.json(dbClient))
+        .then((data) => res.json(data))
     })
 
     app.get("/api/clients/:id", (req, res) => {
@@ -11,8 +11,8 @@ module.exports = (app) => {
             where: {
                 id: req.params.id
             }
-        }).then((dbClient) => {
-            res.json(dbClient)
+        }).then((data) => {
+            res.json(data)
         })
     })
 
@@ -28,7 +28,7 @@ module.exports = (app) => {
                 console.log(err)
             }
         })
-        .then((dbClient) => res.json(dbClient))
+        .then((data) => res.json(data))
         
     })
 
@@ -37,8 +37,13 @@ module.exports = (app) => {
             where: {
                 id: req.params.id
             }
-        }).then((dbClient) => { 
-            res.json(dbClient)
+        }).then((data) => { 
+            res.json(data)
         })
+    })
+
+    app.get("/api/materials/", (req, res) => {
+        db.Material.findAll({})
+        .then((data) => res.json(data))
     })
 }
