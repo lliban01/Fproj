@@ -1,12 +1,13 @@
 const db = require("../models")
 
-module.exports = (app) => {
-    app.get("/api/clients/", (req, res) => {
+
+module.exports = {
+    findAll: (req, res) => {
         db.Client.findAll({})
         .then((data) => res.json(data))
-    })
+    },
 
-    app.get("/api/clients/:id", (req, res) => {
+    findById: (req, res) => {
         db.Client.findAll({
             where: {
                 id: req.params.id
@@ -14,9 +15,9 @@ module.exports = (app) => {
         }).then((data) => {
             res.json(data)
         })
-    })
+    },
     
-    app.post("/api/clients/", (req, res) => {
+    create: (req, res) => {
         console.log(req.body)
         db.Client.create({
             fullName: req.body.fullName,
@@ -30,9 +31,9 @@ module.exports = (app) => {
         })
         .then((data) => res.json(data))
         
-    })
+    },
     
-    app.delete("/api/clients/:id", (req, res) => {
+    destroy: (req, res) => {
         db.Client.destroy({
             where: {
                 id: req.params.id
@@ -40,5 +41,6 @@ module.exports = (app) => {
         }).then((data) => { 
             res.json(data)
         })
-    })
-}
+    }
+
+} 
