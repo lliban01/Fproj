@@ -1,13 +1,13 @@
 const db = require("../models")
 
-module.exports = (app) => {
-    
-    app.get("/api/materials/", (req, res) => {
+
+module.exports = {
+    findAll: (req, res) => {
         db.Material.findAll({})
         .then((data) => res.json(data))
-    })
-    
-    app.get("/api/materials/:id", (req, res) => {
+    },
+
+    findById: (req, res) => {
         db.Material.findAll({
             where: {
                 id: req.params.id
@@ -15,10 +15,13 @@ module.exports = (app) => {
         }).then((data) => {
             res.json(data)
         })
-        
-    app.post("/api/materials/:id", (req, res) => {
+    },
+    
+    create: (req, res) => {
         console.log(req.body)
         db.Material.create({
+            materialName: req.body.materialName,
+            pricePerUnit: req.body.pricePerUnit,
             
         })
         .catch((err) => {
@@ -28,9 +31,9 @@ module.exports = (app) => {
         })
         .then((data) => res.json(data))
         
-    })
-
-    app.delete("/api/materials/:id", (req, res) => {
+    },
+    
+    destroy: (req, res) => {
         db.Material.destroy({
             where: {
                 id: req.params.id
@@ -38,6 +41,6 @@ module.exports = (app) => {
         }).then((data) => { 
             res.json(data)
         })
-    })
-    })
-}
+    }
+
+} 
