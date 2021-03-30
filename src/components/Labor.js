@@ -5,6 +5,8 @@ import "./CSS/theme.css"
 function Labor() {
     return (
         <div>
+            <div className="container">
+
             <h1>Labor</h1><br/>
             <label for="NumberOfPainters"> Number of Painters </label>
                  <input type="number"/><br/>
@@ -18,6 +20,7 @@ function Labor() {
                  <button> <Link to="/quote"> Quote</Link></button>
              </div>
  
+            </div>
         </div>
     )
  }
