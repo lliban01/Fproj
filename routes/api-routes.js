@@ -31,7 +31,7 @@ module.exports = (app) => {
         .then((data) => res.json(data))
         
     })
-
+    
     app.delete("/api/clients/:id", (req, res) => {
         db.Client.destroy({
             where: {
@@ -55,5 +55,29 @@ module.exports = (app) => {
         }).then((data) => {
             res.json(data)
         })
+        
+    app.post("/api/materials/:id", (req, res) => {
+        console.log(req.body)
+        db.Material.create({
+            
+        })
+        .catch((err) => {
+            if (err) {
+                console.log(err)
+            }
+        })
+        .then((data) => res.json(data))
+        
+    })
+
+    app.delete("/api/clients/:id", (req, res) => {
+        db.Material.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then((data) => { 
+            res.json(data)
+        })
+    })
     })
 }
