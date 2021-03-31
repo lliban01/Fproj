@@ -1,13 +1,13 @@
 const db = require("../models")
 
-module.exports = (app) => {
-    
-    app.get("/api/orders/", (req, res) => {
+
+module.exports = {
+    findAll: (req, res) => {
         db.Order.findAll({})
         .then((data) => res.json(data))
-    })
-    
-    app.get("/api/orders/:id", (req, res) => {
+    },
+
+    findById: (req, res) => {
         db.Order.findAll({
             where: {
                 id: req.params.id
@@ -15,10 +15,13 @@ module.exports = (app) => {
         }).then((data) => {
             res.json(data)
         })
-        
-    app.post("/api/orders/", (req, res) => {
+    },
+    
+    create: (req, res) => {
         console.log(req.body)
         db.Order.create({
+            date: req.body.date,
+            finalQuote: req.body.finalQuote,
             
         })
         .catch((err) => {
@@ -28,16 +31,16 @@ module.exports = (app) => {
         })
         .then((data) => res.json(data))
         
-    })
-
-    app.delete("/api/orders/:id", (req, res) => {
-        db.Orders.destroy({
+    },
+    
+    destroy: (req, res) => {
+        db.Order.destroy({
             where: {
                 id: req.params.id
             }
         }).then((data) => { 
             res.json(data)
         })
-    })
-    })
-}
+    }
+
+} 
