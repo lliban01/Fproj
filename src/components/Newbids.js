@@ -6,6 +6,8 @@ import "./CSS/theme.css"
 function Newbids() {
     return (
         <div>
+            <div className="container">
+
             <h1>Client Name</h1>
             <input placeholder="John Doe"/> 
             <br/>
@@ -20,6 +22,7 @@ function Newbids() {
                  <button> <Link to="/paint"> Paint</Link></button>
              </div>
  
+            </div>
    
         </div>
         
