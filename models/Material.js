@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Material = sequelize.define("Material", {
         
-        materialName: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

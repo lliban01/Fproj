@@ -1,7 +1,7 @@
 module.exports = ( sequelize, DataTypes ) => {
     const Paint = sequelize.define("Paint", {
         
-        quality: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

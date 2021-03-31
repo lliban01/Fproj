@@ -20,7 +20,7 @@ module.exports = {
     create: (req, res) => {
         console.log(req.body)
         db.Material.create({
-            materialName: req.body.materialName,
+            name: req.body.name,
             pricePerUnit: req.body.pricePerUnit,
             
         })

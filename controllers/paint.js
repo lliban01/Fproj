@@ -1,24 +1,30 @@
 const db = require("../models")
 
-module.exports = (app) => {
-    
-    app.get("/api/paints/", (req, res) => {
-        db.Paint.findAll({})
+
+module.exports = {
+    findAll: (req, res) => {
+        db.Paint
+        .findAll({})
         .then((data) => res.json(data))
-    })
-    
-    app.get("/api/paints/:id", (req, res) => {
-        db.Paint.findAll({
+    },
+
+    findById: (req, res) => {
+        db.Paint
+        .findAll({
             where: {
                 id: req.params.id
             }
         }).then((data) => {
             res.json(data)
         })
-        
-    app.post("/api/paints/:id", (req, res) => {
+    },
+    
+    create: (req, res) => {
         console.log(req.body)
-        db.Paint.create({
+        db.Paint
+        .create({
+            name: req.body.name,
+            pricePerUnit: req.body.pricePerUnit,
             
         })
         .catch((err) => {
@@ -28,16 +34,17 @@ module.exports = (app) => {
         })
         .then((data) => res.json(data))
         
-    })
-
-    app.delete("/api/paints/:id", (req, res) => {
-        db.Paint.destroy({
+    },
+    
+    destroy: (req, res) => {
+        db.Paint
+        .destroy({
             where: {
                 id: req.params.id
             }
         }).then((data) => { 
             res.json(data)
         })
-    })
-    })
-}
+    }
+
+} 
