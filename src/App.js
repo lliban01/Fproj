@@ -8,7 +8,6 @@ import Newbids from "./components/Newbids";
 import Paint from "./components/Paint";
 import Materials from "./components/Materials";
 import Oldbids from "./components/Oldbids";
-import Navbar from "./components/Navbar";
 import "./index.css";
 
 class App extends React.Component {
@@ -52,8 +51,6 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <Navbar />
-
           <Route exact path="/" component={Home} />
           <Route path="/home" render={() => this.ifUserSignedIn(Main)} />
           <Route path="/main" component={Main} />
