@@ -1,19 +1,30 @@
 const db = require("../models")
 
-module.exports = (app) => {
-    
-    app.get("/api/users/:id", (req, res) => {
-        db.User.findAll({
+
+module.exports = {
+    findAll: (req, res) => {
+        db.User
+        .findAll({})
+        .then((data) => res.json(data))
+    },
+
+    findById: (req, res) => {
+        db.User
+        .findAll({
             where: {
                 id: req.params.id
             }
         }).then((data) => {
             res.json(data)
         })
-        
-    app.post("/api/users/", (req, res) => {
+    },
+    
+    create: (req, res) => {
         console.log(req.body)
-        db.User.create({
+        db.User
+        .create({
+            email: req.body.email,
+            password: req.body.password,
             
         })
         .catch((err) => {
@@ -23,16 +34,17 @@ module.exports = (app) => {
         })
         .then((data) => res.json(data))
         
-    })
-
-    app.delete("/api/users/:id", (req, res) => {
-        db.User.destroy({
+    },
+    
+    destroy: (req, res) => {
+        db.User
+        .destroy({
             where: {
                 id: req.params.id
             }
         }).then((data) => { 
             res.json(data)
         })
-    })
-    })
-}
+    }
+
+} 

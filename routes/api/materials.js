@@ -9,4 +9,4 @@ router.route("/:id")
     .get(materialsController.findById)
     .delete(materialsController.destroy)
 
-module.exports = router
+module.exports = router 
