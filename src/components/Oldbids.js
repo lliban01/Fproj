@@ -5,6 +5,8 @@ import "./CSS/theme.css"
 function Oldbids() {
     return (
         <div>
+            <div className="container">
+
             <h1>Bid 1</h1>
             <div>
                 <h4>Client Name      : <span>John Doe</span></h4>
@@ -24,7 +26,9 @@ function Oldbids() {
  
             <div>
                  <button> <Link to="/main"> Finish</Link></button>
-             </div>
+            </div>
+
+            </div>
         </div>
     )
  }

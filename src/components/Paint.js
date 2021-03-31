@@ -5,6 +5,8 @@ import "./CSS/theme.css"
 function Paint() {
     return (
         <div>
+            <div className="container">
+
             <h1>Paint Quality</h1>
             <select  name="Paint Quality">
                  <option value="Affordable"> Affordable </option>
@@ -20,6 +22,8 @@ function Paint() {
                  <button> <Link to="/newbids"> Back</Link></button>
                  <button> <Link to="/materials"> Materials</Link></button>
              </div>
+             
+            </div>
         </div>
     )
  }
