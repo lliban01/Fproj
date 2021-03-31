@@ -5,7 +5,7 @@ import "./CSS/theme.css"
 function Oldbids() {
     return (
         <div>
-            <div className="container">
+        <div className="container">
 
             <h1>Bid 1</h1>
             <div>
@@ -28,7 +28,7 @@ function Oldbids() {
                  <button> <Link to="/main"> Finish</Link></button>
             </div>
 
-            </div>
+        </div>
         </div>
     )
  }
