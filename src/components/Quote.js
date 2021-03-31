@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import "./CSS/theme.css"
 
 function Quote() {
     return (
         <div>
+            <div className="container">
+
              <h1>Quote</h1>
              <label for="FinalPaintCost"> Final Paint Cost <span>$</span></label>
                  <input value="1000.00"/><br/>
@@ -19,6 +22,8 @@ function Quote() {
                  <button> <Link to="/labor"> Back</Link></button>
                  <button> <Link to="/main"> Finish</Link></button>
              </div>
+             
+            </div>
             
         </div>
     )

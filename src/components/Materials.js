@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import "./CSS/theme.css"
 
 
 function Materials() {
     return (
         <div>
+            <div className="container">
+
             <h1>Materials</h1>   
             <label for="MaskingPastic"> Masking Plastic </label>
                  <input type="number"/><br/>
@@ -22,6 +25,7 @@ function Materials() {
                  <button> <Link to="/labor"> Labor</Link></button>
              </div>
  
+            </div>
  
         </div>
     )
