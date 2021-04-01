@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Main from "./components/Main";
+import Main from "./components/Maint";
 import Labor from "./components/Labor";
 import Quote from "./components/Quote";
 import Newbids from "./components/Newbids";

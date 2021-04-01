@@ -8,11 +8,15 @@ function Labor() {
             <div className="container">
 
             <h1>Labor</h1><br/>
-            <label for="NumberOfPainters"> Number of Painters </label>
-                 <input type="number"/><br/>
-             <label for="EstimatedHours"> Estimated Labor Hours </label>
-                 <input type="number"/><br/>
-                 <br/><br/>
+            <div id="painter">
+                <label class="myLabel" for="NumberOfPainters"> Number of Painters </label>
+                <input class="numInput" type="number"/><br/>
+            </div><br/>
+            <div id="estimates">
+                <label class="myLabel" for="EstimatedHours"> Estimated Labor Hours  </label>
+                <input class="numInput" type="number"/><br/>
+            </div>
+                 
              <h1>Labor Notes</h1> 
              <textarea name="text" cols="25" rows="5" placeholder="Add text here!!"></textarea> <br/>
              <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import companyLogo from "../firstpaint.jpg";
+// import companyLogo from "../firstpaint.jpg";
 
 class Home extends React.Component {
   insertGapiScript() {
@@ -40,7 +40,7 @@ class Home extends React.Component {
       <div>
         <div>
           <h1 className="tc"> Paint Bid App</h1>
-          <img className=" w-100 " src={companyLogo} alt="logo" />
+          {/* <img className=" w-100 " src={companyLogo} alt="logo" /> */}
           <Link to="/main">Go to Main</Link>
         </div>
         <div>

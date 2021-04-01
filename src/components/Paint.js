@@ -14,7 +14,7 @@ function Paint() {
                  <option value="Premium">Premium</option>
              </select><br/><br/>
              <h1>Paint Notes</h1> 
-             <textarea name="text" cols="25" rows="5" placeholder="Add text here!!"></textarea><br/><br/>
+             <textarea name="text"  placeholder="Add text here!!"></textarea><br/><br/>
              <h1> Sq Ft of House</h1>
              <input placeholder="1500 sq ft"></input> <br/><br/>
  

@@ -1,9 +1,44 @@
-
+html, body {margin: 0; height: 100%;}
+body {
+    background:url("../../firstpaint.jpg") fixed center;
+}
 div.container{
     text-align: center;
     border: 3px black solid;
     background-color: rgb(175, 136, 64, .5);
     border-radius: 3rem;
-    margin: 0 auto;
+    width: 45%;
+    margin: 20% auto;
+    padding: 1rem;
 
+}
+
+div#estimates > input.numInput{
+    /* // float: right; */
+}
+div#painter > input.numInput{
+    /* //float: right; */
+}
+
+@media (width:400px) {
+    html, body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+        background-color: black;
+    }
+    div.container{
+        text-align: center;
+        border: 3px black solid;
+        background-color: rgb(175, 136, 64, .5);
+        border-radius: 3rem;
+        width: fit-content;
+        padding: 1rem;
+    
+    }
+    div.container > textarea {
+        width: 100%;
+
+    }
 }
